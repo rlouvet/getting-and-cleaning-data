@@ -11,11 +11,9 @@ Here is a list of libraries used for the project:
 
 ## Reading files
 First we read features and activity names
-<pre><code>
-features = read.table(".\\UCI HAR Dataset\\features.txt")
+<pre><code>features = read.table(".\\UCI HAR Dataset\\features.txt")
 activities = read.table(".\\UCI HAR Dataset\\activity_labels.txt")
-names(activities) = c("Id", "Activity")
-</pre></code>
+names(activities) = c("Id", "Activity")</pre></code>
 
 Then prepare the list of data files to be read for each folder (training or test) and loop on these files
 <pre><code>
