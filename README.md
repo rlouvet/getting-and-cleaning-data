@@ -35,10 +35,10 @@ total_X = rbind(X_train,X_test)
 colnames(total_X) = features$V2
 total_Y = rbind(y_train,y_test)$V1</pre></code>
 
-Then we retrieve activity name string 
+We retrieve activity name string 
 <pre><code>Y_activity = activities[match(total_Y,activities$Id),"Activity"]
 selected_variables = grep("mean\\(\\)|std", features$V2, value = TRUE)</pre></code>
-
+Then we create the tidy data set with "melt" and "dcast" functions
 <pre><code>DT = data.table(Activity = Y_activity, Subject = total_subject, X = total_X[,selected_variables])
 melted_data = melt(DT,id=c("Activity","Subject"))
 tidy_data = dcast(melted_data, Activity + Subject ~ selected_variables,fun.aggregate=mean)</pre></code>
