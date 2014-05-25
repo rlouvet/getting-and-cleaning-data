@@ -29,13 +29,13 @@ for (files_list in seq){ #looping first on training files then on test files
 remove("f1","files_list","object_names") # deleting temporary declaration</pre></code>
 
 ## Building the tidy data set
-Merging the training and the test sets to create one data set
+We merge the training and the test sets to create one data set
 <pre><code>total_subject = rbind(subject_train,subject_test)$V1
 total_X = rbind(X_train,X_test)
 colnames(total_X) = features$V2
 total_Y = rbind(y_train,y_test)$V1</pre></code>
 
-## Retrieving activity name string 
+Then we retrieve activity name string 
 <pre><code>Y_activity = activities[match(total_Y,activities$Id),"Activity"]
 selected_variables = grep("mean\\(\\)|std", features$V2, value = TRUE)</pre></code>
 
