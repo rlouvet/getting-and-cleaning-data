@@ -41,7 +41,7 @@ selected_variables = grep("mean\\(\\)|std", features$V2, value = TRUE)</pre></co
 Then we create the tidy data set with "melt" and "dcast" functions
 <pre><code>DT = data.table(Activity = Y_activity, Subject = total_subject, X = total_X[,selected_variables])
 melted_data = melt(DT,id=c("Activity","Subject"))
-tidy_data = dcast(melted_data, Activity + Subject ~ selected_variables,fun.aggregate=mean)</pre></code>
+tidy_data = dcast(melted_data, Activity + Subject ~ variable,fun.aggregate=mean)</pre></code>
 
 Finally we rename column names to match with best pratices
 <pre><code>colnames(tidy_data) = gsub("\\(\\)", "", colnames(tidy_data))
