@@ -34,12 +34,12 @@ Y_activity = activities[match(total_Y,activities$Id),"Activity"]
 
 selected_variables = grep("mean\\(\\)|std", features$V2, value = TRUE)
 
-DT = data.table(Activity = Y_activity, Subject = total_subject, X = total_X[,selected_variables])
-#df = data.frame(Activity = Y_activity, Subject = total_subject, X = total_X[,selected_variables])
+DT = data.table(Activity = Y_activity, Subject = total_subject, total_X[,selected_variables])
 melted_data = melt(DT,id=c("Activity","Subject"))
-tidy_data = dcast(melted_data, Activity + Subject ~ selected_variables,fun.aggregate=mean)
+tidy_data = dcast(melted_data, Activity + Subject ~ variable,fun.aggregate=mean)
 
 colnames(tidy_data) = gsub("\\(\\)", "", colnames(tidy_data))
 colnames(tidy_data) = gsub("-", ".", colnames(tidy_data))
 
-write.table(tidyDataset, file = "UCI HAR data analysis.txt", row.names = F)
+#Create txt tidy data file
+write.table(tidy_data, file = "UCI HAR data analysis.txt", row.names = F)
