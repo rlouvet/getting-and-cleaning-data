@@ -1,4 +1,4 @@
-Getting and Cleaning Data Course Project - Read me file
+Getting and Cleaning Data Course Project
 =========================
 
 This file describes the process used to obtain the tidy data that can be found in the file "UCI HAR Dataset.txt"
