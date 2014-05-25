@@ -1,8 +1,13 @@
 Getting and Cleaning Data Course Project - Read me file
 =========================
 
-library(data.table)
-library(reshape2)
+This file describes the process used to obtain the tidy data that can be found in the file "UCI HAR Dataset.txt"
+
+## Libraries used
+
+Here is a list of libraries used for the project:
+* library(data.table)
+* library(reshape2)
 
 ## Reading files
 First we read features and activity names
